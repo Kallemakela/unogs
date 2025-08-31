@@ -94,11 +94,54 @@ watchlistBtn.style.cssText = `
     font-weight: bold;
 `;
 
+const hideWatchedCheckbox = document.createElement("div");
+hideWatchedCheckbox.style.cssText = `
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    padding: 3px;
+    border-top: 1px solid #555;
+`;
+
+const hideWatchedInput = document.createElement("input");
+hideWatchedInput.type = "checkbox";
+hideWatchedInput.checked = true;
+hideWatchedInput.style.cssText = `
+    margin: 0;
+    cursor: pointer;
+`;
+
+const hideWatchedLabel = document.createElement("label");
+hideWatchedLabel.textContent = "Hide watched";
+hideWatchedLabel.style.cssText = `
+    color: white;
+    font-size: 9px;
+    cursor: pointer;
+    margin: 0;
+`;
+
+hideWatchedCheckbox.appendChild(hideWatchedInput);
+hideWatchedCheckbox.appendChild(hideWatchedLabel);
+
 watchedBtn.onclick = () => showList("watched", "Watched");
 watchlistBtn.onclick = () => showList("watchlist", "Watchlist");
 
+function applyHideWatched() {
+    const watchedCheckboxes = document.querySelectorAll('.ext-checkbox');
+    watchedCheckboxes.forEach(cb => {
+        const titleItem = cb.closest('.titleitem');
+        if (titleItem) {
+            titleItem.style.display = hideWatchedInput.checked && cb.checked ? 'none' : '';
+        }
+    });
+}
+
+hideWatchedInput.onchange = applyHideWatched;
+
 dropdown.appendChild(watchedBtn);
 dropdown.appendChild(watchlistBtn);
+dropdown.appendChild(hideWatchedCheckbox);
 
 mainBtn.onclick = () => {
     dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
@@ -172,6 +215,9 @@ function get_titles() {
         attachCheckbox(a, type, id, name, "watched", "ext-checkbox");
         attachCheckbox(a, type, id, name, "watchlist", "ext-watchlist");
     }
+
+    // Apply hide logic after new elements are added
+    setTimeout(applyHideWatched, 100);
 
     // console.table(rows);
 }
