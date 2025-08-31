@@ -1,6 +1,6 @@
 # Unogs Utils
 
-Browser extension for [unogs.com](https://unogs.com) that adds watch tracking functionality.
+Browser extension for [unogs.com](https://unogs.com) that adds a list for already watched titles and a watchlist. You can then filter already watched titles and view the watchlist.
 
 ## Features
 
