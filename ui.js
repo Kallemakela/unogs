@@ -34,6 +34,7 @@ function showList(listName, title) {
     const textarea = document.createElement("textarea");
     textarea.value = list;
     textarea.className = "ext-modal-textarea";
+    textarea.readOnly = true;
     
     const closeBtn = document.createElement("button");
     closeBtn.textContent = "Close";
@@ -89,6 +90,10 @@ function createUI() {
     const hideWatchedLabel = document.createElement("label");
     hideWatchedLabel.textContent = "Hide watched";
     hideWatchedLabel.className = "ext-hide-watched-label";
+    hideWatchedLabel.onclick = () => {
+        hideWatchedInput.checked = !hideWatchedInput.checked;
+        applyHideWatched();
+    };
 
     hideWatchedCheckbox.appendChild(hideWatchedInput);
     hideWatchedCheckbox.appendChild(hideWatchedLabel);
