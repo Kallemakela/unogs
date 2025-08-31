@@ -2,7 +2,7 @@
 
 Browser extension for [unogs.com](https://unogs.com) that adds a list for already watched titles and a watchlist. You can then filter already watched titles and view the watchlist.
 
-![Demo](demo.mp4)
+[![Demo](demo_thumbnail.png)](demo.mp4)
 
 ## Features
 
