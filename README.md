@@ -2,6 +2,8 @@
 
 Browser extension for [unogs.com](https://unogs.com) that adds a list for already watched titles and a watchlist. You can then filter already watched titles and view the watchlist.
 
+<video src="demo.mp4" width="600" autoplay loop muted playsinline></video>
+
 ## Features
 
 - Add checkboxes next to movie/series titles to mark as watched or add to watchlist
