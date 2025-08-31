@@ -1,0 +1,3 @@
+- [ ] esc needs to be pressed 3 times to close a list view, should be 2
+	- 1. deselects
+	- 2. should close
